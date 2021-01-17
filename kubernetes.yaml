@@ -1,12 +1,12 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: apps/v1 #version of kubernetes api
+kind: Deployment # kind of the file...it can be services, pods, secrets, configmap
 metadata:
-  name: sba-kubernetes-cluster
+  name: sba-kubernetes-cluster #name of my app --for microservice architecture this is name of the microservice
 spec:
   selector:
     matchLabels:
       app: flask
-  replicas: 3 # tells deployment to run 2 pods matching the template
+  replicas: 3 # tells deployment to run 3 pods matching the template
   template:
     metadata:
       labels:
@@ -16,4 +16,4 @@ spec:
       - name: sba-kubernetes-cluster
         image: vakkasoglu/sba-kubernetes-cluster
         ports:
-        - containerPort: 80
+        - containerPort: 80 # it maps to port 80 inside the container
