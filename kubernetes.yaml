@@ -1,19 +1,33 @@
 apiVersion: apps/v1 #version of kubernetes api
-kind: Deployment # kind of the file...it can be services, pods, secrets, configmap
-metadata:
-  name: sba-kubernetes-cluster #name of my app --for microservice architecture this is name of the microservice
+kind: Deployment #kind of the file...it can be services, pods, secrets configmap
+metadata: 
+  name: sba-kubernetes-cluster #name of my app. for microservice structure this is the name of the microservice
 spec:
   selector:
     matchLabels:
-      app: flask
-  replicas: 3 # tells deployment to run 3 pods matching the template
+      app: flask 
+  replicas: 3 #tells deployment to run 3 pods matching the template
   template:
     metadata:
       labels:
         app: flask
     spec:
       containers:
-      - name: sba-kubernetes-cluster
+      - name: sba-kubernetes-cluster # '-' indicates array
         image: vakkasoglu/sba-kubernetes-cluster
         ports:
-        - containerPort: 80 # it maps to port 80 inside the container
+        - containerPort: 8888 # it maps the port 8888 inside the container
+---
+# https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service
+ # service maps the pods into one IP address
+apiVersion: v1
+kind: Service
+metadata:
+  name: sba-kubernetes-cluster-service #name of the service
+spec:
+  selector:
+    app: flask
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8888
