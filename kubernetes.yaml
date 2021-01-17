@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sba-kubernetes-cluster
+spec:
+  selector:
+    matchLabels:
+      app: flask
+  replicas: 3 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: flask
+    spec:
+      containers:
+      - name: sba-kubernetes-cluster
+        image: vakkasoglu/sba-kubernetes-cluster
+        ports:
+        - containerPort: 80
