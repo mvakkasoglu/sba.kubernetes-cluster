@@ -1,36 +1,3 @@
-Name:              kubernetes
-Namespace:         default
-Labels:            component=apiserver
-                   provider=kubernetes
-Annotations:       <none>
-Selector:          <none>
-Type:              ClusterIP
-IP Families:       <none>
-IP:                10.96.0.1
-IPs:               10.96.0.1
-Port:              https  443/TCP
-TargetPort:        8443/TCP
-Endpoints:         192.168.49.2:8443
-Session Affinity:  None
-Events:            <none>
-
-
-Name:                     sba-kubernetes-cluster-service
-Namespace:                default
-Labels:                   <none>
-Annotations:              <none>
-Selector:                 app=sba-kubernetes-cluster
-Type:                     NodePort
-IP Families:              <none>
-IP:                       10.109.153.195
-IPs:                      10.109.153.195
-Port:                     <unset>  5000/TCP
-TargetPort:               5000/TCP
-NodePort:                 <unset>  31000/TCP
-Endpoints:                172.17.0.10:5000,172.17.0.11:5000,172.17.0.9:5000
-Session Affinity:         None
-External Traffic Policy:  Cluster
-Events:                   <none>
 Name:         sba-kubernetes-cluster-84f6dfb477-bdk27
 Namespace:    default
 Priority:     0
@@ -73,7 +40,14 @@ QoS Class:       BestEffort
 Node-Selectors:  <none>
 Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
                  node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
-Events:          <none>
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  59m   default-scheduler  Successfully assigned default/sba-kubernetes-cluster-84f6dfb477-bdk27 to minikube
+  Normal  Pulling    59m   kubelet            Pulling image "vakkasoglu/sba-kubernetes-cluster"
+  Normal  Pulled     59m   kubelet            Successfully pulled image "vakkasoglu/sba-kubernetes-cluster" in 406.8559ms
+  Normal  Created    59m   kubelet            Created container sba-kubernetes-cluster
+  Normal  Started    59m   kubelet            Started container sba-kubernetes-cluster
 
 
 Name:         sba-kubernetes-cluster-84f6dfb477-lpmk8
@@ -118,7 +92,14 @@ QoS Class:       BestEffort
 Node-Selectors:  <none>
 Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
                  node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
-Events:          <none>
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  59m   default-scheduler  Successfully assigned default/sba-kubernetes-cluster-84f6dfb477-lpmk8 to minikube
+  Normal  Pulling    59m   kubelet            Pulling image "vakkasoglu/sba-kubernetes-cluster"
+  Normal  Pulled     59m   kubelet            Successfully pulled image "vakkasoglu/sba-kubernetes-cluster" in 1.4163795s
+  Normal  Created    59m   kubelet            Created container sba-kubernetes-cluster
+  Normal  Started    59m   kubelet            Started container sba-kubernetes-cluster
 
 
 Name:         sba-kubernetes-cluster-84f6dfb477-tvbtv
@@ -163,7 +144,14 @@ QoS Class:       BestEffort
 Node-Selectors:  <none>
 Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
                  node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
-Events:          <none>
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  59m   default-scheduler  Successfully assigned default/sba-kubernetes-cluster-84f6dfb477-tvbtv to minikube
+  Normal  Pulling    59m   kubelet            Pulling image "vakkasoglu/sba-kubernetes-cluster"
+  Normal  Pulled     59m   kubelet            Successfully pulled image "vakkasoglu/sba-kubernetes-cluster" in 462.7729ms
+  Normal  Created    59m   kubelet            Created container sba-kubernetes-cluster
+  Normal  Started    59m   kubelet            Started container sba-kubernetes-cluster
 
 
 Name:         sba-kubernetes-cluster-deployment-7d5b75f86c-9m577
@@ -211,11 +199,11 @@ Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
 Events:
   Type    Reason     Age   From               Message
   ----    ------     ----  ----               -------
-  Normal  Scheduled  118m  default-scheduler  Successfully assigned default/sba-kubernetes-cluster-deployment-7d5b75f86c-9m577 to minikube
-  Normal  Pulling    118m  kubelet            Pulling image "vakkasoglu/sba-kubernetes-cluster"
-  Normal  Pulled     118m  kubelet            Successfully pulled image "vakkasoglu/sba-kubernetes-cluster" in 1.4011678s
-  Normal  Created    118m  kubelet            Created container sba-kubernetes-cluster-container
-  Normal  Started    118m  kubelet            Started container sba-kubernetes-cluster-container
+  Normal  Scheduled  12m   default-scheduler  Successfully assigned default/sba-kubernetes-cluster-deployment-7d5b75f86c-9m577 to minikube
+  Normal  Pulling    12m   kubelet            Pulling image "vakkasoglu/sba-kubernetes-cluster"
+  Normal  Pulled     12m   kubelet            Successfully pulled image "vakkasoglu/sba-kubernetes-cluster" in 1.4011678s
+  Normal  Created    12m   kubelet            Created container sba-kubernetes-cluster-container
+  Normal  Started    12m   kubelet            Started container sba-kubernetes-cluster-container
 
 
 Name:         sba-kubernetes-cluster-deployment-7d5b75f86c-jzn4l
@@ -263,11 +251,11 @@ Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
 Events:
   Type    Reason     Age   From               Message
   ----    ------     ----  ----               -------
-  Normal  Scheduled  118m  default-scheduler  Successfully assigned default/sba-kubernetes-cluster-deployment-7d5b75f86c-jzn4l to minikube
-  Normal  Pulling    118m  kubelet            Pulling image "vakkasoglu/sba-kubernetes-cluster"
-  Normal  Pulled     118m  kubelet            Successfully pulled image "vakkasoglu/sba-kubernetes-cluster" in 2.0020691s
-  Normal  Created    118m  kubelet            Created container sba-kubernetes-cluster-container
-  Normal  Started    118m  kubelet            Started container sba-kubernetes-cluster-container
+  Normal  Scheduled  12m   default-scheduler  Successfully assigned default/sba-kubernetes-cluster-deployment-7d5b75f86c-jzn4l to minikube
+  Normal  Pulling    12m   kubelet            Pulling image "vakkasoglu/sba-kubernetes-cluster"
+  Normal  Pulled     12m   kubelet            Successfully pulled image "vakkasoglu/sba-kubernetes-cluster" in 2.0020691s
+  Normal  Created    12m   kubelet            Created container sba-kubernetes-cluster-container
+  Normal  Started    12m   kubelet            Started container sba-kubernetes-cluster-container
 
 
 Name:         sba-kubernetes-cluster-deployment-7d5b75f86c-qv9k9
@@ -315,101 +303,8 @@ Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
 Events:
   Type    Reason     Age   From               Message
   ----    ------     ----  ----               -------
-  Normal  Scheduled  118m  default-scheduler  Successfully assigned default/sba-kubernetes-cluster-deployment-7d5b75f86c-qv9k9 to minikube
-  Normal  Pulling    118m  kubelet            Pulling image "vakkasoglu/sba-kubernetes-cluster"
-  Normal  Pulled     118m  kubelet            Successfully pulled image "vakkasoglu/sba-kubernetes-cluster" in 913.1232ms
-  Normal  Created    118m  kubelet            Created container sba-kubernetes-cluster-container
-  Normal  Started    118m  kubelet            Started container sba-kubernetes-cluster-container
-Name:               minikube
-Roles:              control-plane,master
-Labels:             beta.kubernetes.io/arch=amd64
-                    beta.kubernetes.io/os=linux
-                    kubernetes.io/arch=amd64
-                    kubernetes.io/hostname=minikube
-                    kubernetes.io/os=linux
-                    minikube.k8s.io/commit=9f1e482427589ff8451c4723b6ba53bb9742fbb1
-                    minikube.k8s.io/name=minikube
-                    minikube.k8s.io/updated_at=2021_01_12T11_06_57_0700
-                    minikube.k8s.io/version=v1.16.0
-                    node-role.kubernetes.io/control-plane=
-                    node-role.kubernetes.io/master=
-Annotations:        kubeadm.alpha.kubernetes.io/cri-socket: /var/run/dockershim.sock
-                    node.alpha.kubernetes.io/ttl: 0
-                    volumes.kubernetes.io/controller-managed-attach-detach: true
-CreationTimestamp:  Tue, 12 Jan 2021 11:06:55 -0500
-Taints:             <none>
-Unschedulable:      false
-Lease:
-  HolderIdentity:  minikube
-  AcquireTime:     <unset>
-  RenewTime:       Mon, 18 Jan 2021 12:37:51 -0500
-Conditions:
-  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
-  ----             ------  -----------------                 ------------------                ------                       -------
-  MemoryPressure   False   Mon, 18 Jan 2021 12:36:51 -0500   Tue, 12 Jan 2021 11:06:55 -0500   KubeletHasSufficientMemory   kubelet has sufficient memory available
-  DiskPressure     False   Mon, 18 Jan 2021 12:36:51 -0500   Tue, 12 Jan 2021 11:06:55 -0500   KubeletHasNoDiskPressure     kubelet has no disk pressure
-  PIDPressure      False   Mon, 18 Jan 2021 12:36:51 -0500   Tue, 12 Jan 2021 11:06:55 -0500   KubeletHasSufficientPID      kubelet has sufficient PID available
-  Ready            True    Mon, 18 Jan 2021 12:36:51 -0500   Tue, 12 Jan 2021 11:07:17 -0500   KubeletReady                 kubelet is posting ready status
-Addresses:
-  InternalIP:  192.168.49.2
-  Hostname:    minikube
-Capacity:
-  cpu:                4
-  ephemeral-storage:  61255492Ki
-  hugepages-1Gi:      0
-  hugepages-2Mi:      0
-  memory:             2035188Ki
-  pods:               110
-Allocatable:
-  cpu:                4
-  ephemeral-storage:  61255492Ki
-  hugepages-1Gi:      0
-  hugepages-2Mi:      0
-  memory:             2035188Ki
-  pods:               110
-System Info:
-  Machine ID:                 ff809fe13e0d49b08cb3cf764115ba96
-  System UUID:                1da4d6e9-6295-4cca-9f97-15352439bf51
-  Boot ID:                    960bfa91-b521-4fa2-bd04-4b7f9c2faa65
-  Kernel Version:             5.4.39-linuxkit
-  OS Image:                   Ubuntu 20.04.1 LTS
-  Operating System:           linux
-  Architecture:               amd64
-  Container Runtime Version:  docker://20.10.0
-  Kubelet Version:            v1.20.0
-  Kube-Proxy Version:         v1.20.0
-PodCIDR:                      10.244.0.0/24
-PodCIDRs:                     10.244.0.0/24
-Non-terminated Pods:          (16 in total)
-  Namespace                   Name                                                  CPU Requests  CPU Limits  Memory Requests  Memory Limits  AGE
-  ---------                   ----                                                  ------------  ----------  ---------------  -------------  ---
-  default                     sba-kubernetes-cluster-84f6dfb477-bdk27               0 (0%)        0 (0%)      0 (0%)           0 (0%)         165m
-  default                     sba-kubernetes-cluster-84f6dfb477-lpmk8               0 (0%)        0 (0%)      0 (0%)           0 (0%)         165m
-  default                     sba-kubernetes-cluster-84f6dfb477-tvbtv               0 (0%)        0 (0%)      0 (0%)           0 (0%)         165m
-  default                     sba-kubernetes-cluster-deployment-7d5b75f86c-9m577    0 (0%)        0 (0%)      0 (0%)           0 (0%)         118m
-  default                     sba-kubernetes-cluster-deployment-7d5b75f86c-jzn4l    0 (0%)        0 (0%)      0 (0%)           0 (0%)         118m
-  default                     sba-kubernetes-cluster-deployment-7d5b75f86c-qv9k9    0 (0%)        0 (0%)      0 (0%)           0 (0%)         118m
-  kube-system                 coredns-74ff55c5b-2nd4l                               100m (2%)     0 (0%)      70Mi (3%)        170Mi (8%)     6d1h
-  kube-system                 etcd-minikube                                         100m (2%)     0 (0%)      100Mi (5%)       0 (0%)         6d1h
-  kube-system                 kube-apiserver-minikube                               250m (6%)     0 (0%)      0 (0%)           0 (0%)         6d1h
-  kube-system                 kube-controller-manager-minikube                      200m (5%)     0 (0%)      0 (0%)           0 (0%)         6d1h
-  kube-system                 kube-proxy-84bqs                                      0 (0%)        0 (0%)      0 (0%)           0 (0%)         6d1h
-  kube-system                 kube-scheduler-minikube                               100m (2%)     0 (0%)      0 (0%)           0 (0%)         6d1h
-  kube-system                 metrics-server-d9b576748-gr7vs                        0 (0%)        0 (0%)      0 (0%)           0 (0%)         44h
-  kube-system                 storage-provisioner                                   0 (0%)        0 (0%)      0 (0%)           0 (0%)         6d1h
-  kubernetes-dashboard        dashboard-metrics-scraper-c95fcf479-4qv77             0 (0%)        0 (0%)      0 (0%)           0 (0%)         6d1h
-  kubernetes-dashboard        kubernetes-dashboard-6cff4c7c4f-6bgzd                 0 (0%)        0 (0%)      0 (0%)           0 (0%)         6d1h
-Allocated resources:
-  (Total limits may be over 100 percent, i.e., overcommitted.)
-  Resource           Requests    Limits
-  --------           --------    ------
-  cpu                750m (18%)  0 (0%)
-  memory             170Mi (8%)  170Mi (8%)
-  ephemeral-storage  100Mi (0%)  0 (0%)
-  hugepages-1Gi      0 (0%)      0 (0%)
-  hugepages-2Mi      0 (0%)      0 (0%)
-Events:              <none>
-[0;32mKubernetes control plane[0m is running at [0;33mhttps://127.0.0.1:32776[0m
-[0;32mKubeDNS[0m is running at [0;33mhttps://127.0.0.1:32776/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy[0m
-
-To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+  Normal  Scheduled  12m   default-scheduler  Successfully assigned default/sba-kubernetes-cluster-deployment-7d5b75f86c-qv9k9 to minikube
+  Normal  Pulling    12m   kubelet            Pulling image "vakkasoglu/sba-kubernetes-cluster"
+  Normal  Pulled     12m   kubelet            Successfully pulled image "vakkasoglu/sba-kubernetes-cluster" in 913.1232ms
+  Normal  Created    12m   kubelet            Created container sba-kubernetes-cluster-container
+  Normal  Started    12m   kubelet            Started container sba-kubernetes-cluster-container
