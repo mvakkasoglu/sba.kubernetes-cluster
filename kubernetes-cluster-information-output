@@ -22,37 +22,37 @@ Annotations:              <none>
 Selector:                 app=sba-kubernetes-cluster
 Type:                     NodePort
 IP Families:              <none>
-IP:                       10.109.153.195
-IPs:                      10.109.153.195
+IP:                       10.101.132.32
+IPs:                      10.101.132.32
 Port:                     <unset>  5000/TCP
 TargetPort:               5000/TCP
 NodePort:                 <unset>  31000/TCP
-Endpoints:                172.17.0.10:5000,172.17.0.11:5000,172.17.0.9:5000
+Endpoints:                172.17.0.2:5000,172.17.0.3:5000,172.17.0.5:5000
 Session Affinity:         None
 External Traffic Policy:  Cluster
 Events:                   <none>
-Name:         sba-kubernetes-cluster-84f6dfb477-bdk27
+Name:         sba-kubernetes-cluster-bc6687bf5-5vlc8
 Namespace:    default
 Priority:     0
 Node:         minikube/192.168.49.2
-Start Time:   Mon, 18 Jan 2021 09:52:55 -0500
+Start Time:   Mon, 18 Jan 2021 20:01:13 -0500
 Labels:       app=flask
-              pod-template-hash=84f6dfb477
+              pod-template-hash=bc6687bf5
 Annotations:  <none>
 Status:       Running
-IP:           172.17.0.8
+IP:           172.17.0.12
 IPs:
-  IP:           172.17.0.8
-Controlled By:  ReplicaSet/sba-kubernetes-cluster-84f6dfb477
+  IP:           172.17.0.12
+Controlled By:  ReplicaSet/sba-kubernetes-cluster-bc6687bf5
 Containers:
   sba-kubernetes-cluster:
-    Container ID:   docker://afb3add8dafd6b7b03730d66c8f29f0a4126c2fff1785cd5d63eb2122d40e261
+    Container ID:   docker://92735b2e32749e94efd0b7edbd5184922053eef8409dc2e6e83ee80896032fd1
     Image:          vakkasoglu/sba-kubernetes-cluster
     Image ID:       docker-pullable://vakkasoglu/sba-kubernetes-cluster@sha256:ab0c43d67c703493fdda5509910ccca7b38e3f807e65850f86811463da2e07f7
-    Port:           8888/TCP
+    Port:           5000/TCP
     Host Port:      0/TCP
     State:          Running
-      Started:      Mon, 18 Jan 2021 09:52:56 -0500
+      Started:      Mon, 18 Jan 2021 20:01:20 -0500
     Ready:          True
     Restart Count:  0
     Environment:    <none>
@@ -73,121 +73,246 @@ QoS Class:       BestEffort
 Node-Selectors:  <none>
 Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
                  node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
-Events:          <none>
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  17m   default-scheduler  Successfully assigned default/sba-kubernetes-cluster-bc6687bf5-5vlc8 to minikube
+  Normal  Pulling    17m   kubelet            Pulling image "vakkasoglu/sba-kubernetes-cluster"
+  Normal  Pulled     17m   kubelet            Successfully pulled image "vakkasoglu/sba-kubernetes-cluster" in 699.8989ms
+  Normal  Created    17m   kubelet            Created container sba-kubernetes-cluster
+  Normal  Started    17m   kubelet            Started container sba-kubernetes-cluster
 
 
-Name:         sba-kubernetes-cluster-84f6dfb477-lpmk8
+Name:         sba-kubernetes-cluster-bc6687bf5-62nzx
 Namespace:    default
 Priority:     0
 Node:         minikube/192.168.49.2
-Start Time:   Mon, 18 Jan 2021 09:52:42 -0500
+Start Time:   Mon, 18 Jan 2021 20:01:13 -0500
 Labels:       app=flask
-              pod-template-hash=84f6dfb477
+              pod-template-hash=bc6687bf5
+Annotations:  <none>
+Status:       Running
+IP:           172.17.0.14
+IPs:
+  IP:           172.17.0.14
+Controlled By:  ReplicaSet/sba-kubernetes-cluster-bc6687bf5
+Containers:
+  sba-kubernetes-cluster:
+    Container ID:   docker://a216171e6ac1642e14123a4496c5f3f35e3ce696c4eb2457f626a15d599ea0c6
+    Image:          vakkasoglu/sba-kubernetes-cluster
+    Image ID:       docker-pullable://vakkasoglu/sba-kubernetes-cluster@sha256:ab0c43d67c703493fdda5509910ccca7b38e3f807e65850f86811463da2e07f7
+    Port:           5000/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Mon, 18 Jan 2021 20:01:21 -0500
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-9kj9r (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-9kj9r:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-9kj9r
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  17m   default-scheduler  Successfully assigned default/sba-kubernetes-cluster-bc6687bf5-62nzx to minikube
+  Normal  Pulling    17m   kubelet            Pulling image "vakkasoglu/sba-kubernetes-cluster"
+  Normal  Pulled     17m   kubelet            Successfully pulled image "vakkasoglu/sba-kubernetes-cluster" in 1.1887027s
+  Normal  Created    17m   kubelet            Created container sba-kubernetes-cluster
+  Normal  Started    17m   kubelet            Started container sba-kubernetes-cluster
+
+
+Name:         sba-kubernetes-cluster-bc6687bf5-tlxsj
+Namespace:    default
+Priority:     0
+Node:         minikube/192.168.49.2
+Start Time:   Mon, 18 Jan 2021 20:01:13 -0500
+Labels:       app=flask
+              pod-template-hash=bc6687bf5
+Annotations:  <none>
+Status:       Running
+IP:           172.17.0.13
+IPs:
+  IP:           172.17.0.13
+Controlled By:  ReplicaSet/sba-kubernetes-cluster-bc6687bf5
+Containers:
+  sba-kubernetes-cluster:
+    Container ID:   docker://4d27c3f9684fc5ad6271d6a8331f802ecc313e54f08ec6b0f40f0f8124af130b
+    Image:          vakkasoglu/sba-kubernetes-cluster
+    Image ID:       docker-pullable://vakkasoglu/sba-kubernetes-cluster@sha256:ab0c43d67c703493fdda5509910ccca7b38e3f807e65850f86811463da2e07f7
+    Port:           5000/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Mon, 18 Jan 2021 20:01:22 -0500
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-9kj9r (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-9kj9r:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-9kj9r
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  17m   default-scheduler  Successfully assigned default/sba-kubernetes-cluster-bc6687bf5-tlxsj to minikube
+  Normal  Pulling    17m   kubelet            Pulling image "vakkasoglu/sba-kubernetes-cluster"
+  Normal  Pulled     17m   kubelet            Successfully pulled image "vakkasoglu/sba-kubernetes-cluster" in 1.8682617s
+  Normal  Created    17m   kubelet            Created container sba-kubernetes-cluster
+  Normal  Started    17m   kubelet            Started container sba-kubernetes-cluster
+
+
+Name:         sba-kubernetes-cluster-deployment-7d5b75f86c-2pcpr
+Namespace:    default
+Priority:     0
+Node:         minikube/192.168.49.2
+Start Time:   Mon, 18 Jan 2021 20:14:59 -0500
+Labels:       app=sba-kubernetes-cluster
+              pod-template-hash=7d5b75f86c
+Annotations:  <none>
+Status:       Running
+IP:           172.17.0.3
+IPs:
+  IP:           172.17.0.3
+Controlled By:  ReplicaSet/sba-kubernetes-cluster-deployment-7d5b75f86c
+Containers:
+  sba-kubernetes-cluster-container:
+    Container ID:   docker://f898ddd214656a0bf7d5eb91c13aa8b2d7ec0fcbec94c6042ab1779f69064447
+    Image:          vakkasoglu/sba-kubernetes-cluster
+    Image ID:       docker-pullable://vakkasoglu/sba-kubernetes-cluster@sha256:ab0c43d67c703493fdda5509910ccca7b38e3f807e65850f86811463da2e07f7
+    Port:           5000/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Mon, 18 Jan 2021 20:15:04 -0500
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-9kj9r (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-9kj9r:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-9kj9r
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  3m50s  default-scheduler  Successfully assigned default/sba-kubernetes-cluster-deployment-7d5b75f86c-2pcpr to minikube
+  Normal  Pulling    3m47s  kubelet            Pulling image "vakkasoglu/sba-kubernetes-cluster"
+  Normal  Pulled     3m46s  kubelet            Successfully pulled image "vakkasoglu/sba-kubernetes-cluster" in 783.2499ms
+  Normal  Created    3m46s  kubelet            Created container sba-kubernetes-cluster-container
+  Normal  Started    3m45s  kubelet            Started container sba-kubernetes-cluster-container
+
+
+Name:         sba-kubernetes-cluster-deployment-7d5b75f86c-5cbz6
+Namespace:    default
+Priority:     0
+Node:         minikube/192.168.49.2
+Start Time:   Mon, 18 Jan 2021 20:14:59 -0500
+Labels:       app=sba-kubernetes-cluster
+              pod-template-hash=7d5b75f86c
+Annotations:  <none>
+Status:       Running
+IP:           172.17.0.2
+IPs:
+  IP:           172.17.0.2
+Controlled By:  ReplicaSet/sba-kubernetes-cluster-deployment-7d5b75f86c
+Containers:
+  sba-kubernetes-cluster-container:
+    Container ID:   docker://d1287fb5afc45ff3e1643a9df603e6e00b5d863253cf8ef53275e5627efae6d6
+    Image:          vakkasoglu/sba-kubernetes-cluster
+    Image ID:       docker-pullable://vakkasoglu/sba-kubernetes-cluster@sha256:ab0c43d67c703493fdda5509910ccca7b38e3f807e65850f86811463da2e07f7
+    Port:           5000/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Mon, 18 Jan 2021 20:15:05 -0500
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-9kj9r (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-9kj9r:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-9kj9r
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  3m51s  default-scheduler  Successfully assigned default/sba-kubernetes-cluster-deployment-7d5b75f86c-5cbz6 to minikube
+  Normal  Pulling    3m47s  kubelet            Pulling image "vakkasoglu/sba-kubernetes-cluster"
+  Normal  Pulled     3m45s  kubelet            Successfully pulled image "vakkasoglu/sba-kubernetes-cluster" in 1.3340213s
+  Normal  Created    3m45s  kubelet            Created container sba-kubernetes-cluster-container
+  Normal  Started    3m45s  kubelet            Started container sba-kubernetes-cluster-container
+
+
+Name:         sba-kubernetes-cluster-deployment-7d5b75f86c-j84qc
+Namespace:    default
+Priority:     0
+Node:         minikube/192.168.49.2
+Start Time:   Mon, 18 Jan 2021 20:14:59 -0500
+Labels:       app=sba-kubernetes-cluster
+              pod-template-hash=7d5b75f86c
 Annotations:  <none>
 Status:       Running
 IP:           172.17.0.5
 IPs:
   IP:           172.17.0.5
-Controlled By:  ReplicaSet/sba-kubernetes-cluster-84f6dfb477
-Containers:
-  sba-kubernetes-cluster:
-    Container ID:   docker://f48bc893b7646dd511eeac6f8660319e2ac58f7f6bebe657f6ca2e3f2862fb4e
-    Image:          vakkasoglu/sba-kubernetes-cluster
-    Image ID:       docker-pullable://vakkasoglu/sba-kubernetes-cluster@sha256:ab0c43d67c703493fdda5509910ccca7b38e3f807e65850f86811463da2e07f7
-    Port:           8888/TCP
-    Host Port:      0/TCP
-    State:          Running
-      Started:      Mon, 18 Jan 2021 09:52:49 -0500
-    Ready:          True
-    Restart Count:  0
-    Environment:    <none>
-    Mounts:
-      /var/run/secrets/kubernetes.io/serviceaccount from default-token-9kj9r (ro)
-Conditions:
-  Type              Status
-  Initialized       True 
-  Ready             True 
-  ContainersReady   True 
-  PodScheduled      True 
-Volumes:
-  default-token-9kj9r:
-    Type:        Secret (a volume populated by a Secret)
-    SecretName:  default-token-9kj9r
-    Optional:    false
-QoS Class:       BestEffort
-Node-Selectors:  <none>
-Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
-                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
-Events:          <none>
-
-
-Name:         sba-kubernetes-cluster-84f6dfb477-tvbtv
-Namespace:    default
-Priority:     0
-Node:         minikube/192.168.49.2
-Start Time:   Mon, 18 Jan 2021 09:52:50 -0500
-Labels:       app=flask
-              pod-template-hash=84f6dfb477
-Annotations:  <none>
-Status:       Running
-IP:           172.17.0.6
-IPs:
-  IP:           172.17.0.6
-Controlled By:  ReplicaSet/sba-kubernetes-cluster-84f6dfb477
-Containers:
-  sba-kubernetes-cluster:
-    Container ID:   docker://439c0b271c6b27d569a4ad10e6c80d962d0da2c5d291d0d1bfde0c03327d6d78
-    Image:          vakkasoglu/sba-kubernetes-cluster
-    Image ID:       docker-pullable://vakkasoglu/sba-kubernetes-cluster@sha256:ab0c43d67c703493fdda5509910ccca7b38e3f807e65850f86811463da2e07f7
-    Port:           8888/TCP
-    Host Port:      0/TCP
-    State:          Running
-      Started:      Mon, 18 Jan 2021 09:52:53 -0500
-    Ready:          True
-    Restart Count:  0
-    Environment:    <none>
-    Mounts:
-      /var/run/secrets/kubernetes.io/serviceaccount from default-token-9kj9r (ro)
-Conditions:
-  Type              Status
-  Initialized       True 
-  Ready             True 
-  ContainersReady   True 
-  PodScheduled      True 
-Volumes:
-  default-token-9kj9r:
-    Type:        Secret (a volume populated by a Secret)
-    SecretName:  default-token-9kj9r
-    Optional:    false
-QoS Class:       BestEffort
-Node-Selectors:  <none>
-Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
-                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
-Events:          <none>
-
-
-Name:         sba-kubernetes-cluster-deployment-7d5b75f86c-9m577
-Namespace:    default
-Priority:     0
-Node:         minikube/192.168.49.2
-Start Time:   Mon, 18 Jan 2021 10:39:16 -0500
-Labels:       app=sba-kubernetes-cluster
-              pod-template-hash=7d5b75f86c
-Annotations:  <none>
-Status:       Running
-IP:           172.17.0.10
-IPs:
-  IP:           172.17.0.10
 Controlled By:  ReplicaSet/sba-kubernetes-cluster-deployment-7d5b75f86c
 Containers:
   sba-kubernetes-cluster-container:
-    Container ID:   docker://a33f3b98e777efb7e002cd537e08c4c864f917bbb44b3c5e98a935ef374aa67f
+    Container ID:   docker://8c8d66a2f3b4b70d18c8a6abae18067b99492e095cf35d61248267af797727ab
     Image:          vakkasoglu/sba-kubernetes-cluster
     Image ID:       docker-pullable://vakkasoglu/sba-kubernetes-cluster@sha256:ab0c43d67c703493fdda5509910ccca7b38e3f807e65850f86811463da2e07f7
     Port:           5000/TCP
     Host Port:      0/TCP
     State:          Running
-      Started:      Mon, 18 Jan 2021 10:39:24 -0500
+      Started:      Mon, 18 Jan 2021 20:15:06 -0500
     Ready:          True
     Restart Count:  0
     Environment:    <none>
@@ -209,117 +334,13 @@ Node-Selectors:  <none>
 Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
                  node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
 Events:
-  Type    Reason     Age   From               Message
-  ----    ------     ----  ----               -------
-  Normal  Scheduled  118m  default-scheduler  Successfully assigned default/sba-kubernetes-cluster-deployment-7d5b75f86c-9m577 to minikube
-  Normal  Pulling    118m  kubelet            Pulling image "vakkasoglu/sba-kubernetes-cluster"
-  Normal  Pulled     118m  kubelet            Successfully pulled image "vakkasoglu/sba-kubernetes-cluster" in 1.4011678s
-  Normal  Created    118m  kubelet            Created container sba-kubernetes-cluster-container
-  Normal  Started    118m  kubelet            Started container sba-kubernetes-cluster-container
-
-
-Name:         sba-kubernetes-cluster-deployment-7d5b75f86c-jzn4l
-Namespace:    default
-Priority:     0
-Node:         minikube/192.168.49.2
-Start Time:   Mon, 18 Jan 2021 10:39:16 -0500
-Labels:       app=sba-kubernetes-cluster
-              pod-template-hash=7d5b75f86c
-Annotations:  <none>
-Status:       Running
-IP:           172.17.0.11
-IPs:
-  IP:           172.17.0.11
-Controlled By:  ReplicaSet/sba-kubernetes-cluster-deployment-7d5b75f86c
-Containers:
-  sba-kubernetes-cluster-container:
-    Container ID:   docker://79a5ecff396c6571436532fb2faf71525559383b637ac462c1ae2a4391006f91
-    Image:          vakkasoglu/sba-kubernetes-cluster
-    Image ID:       docker-pullable://vakkasoglu/sba-kubernetes-cluster@sha256:ab0c43d67c703493fdda5509910ccca7b38e3f807e65850f86811463da2e07f7
-    Port:           5000/TCP
-    Host Port:      0/TCP
-    State:          Running
-      Started:      Mon, 18 Jan 2021 10:39:25 -0500
-    Ready:          True
-    Restart Count:  0
-    Environment:    <none>
-    Mounts:
-      /var/run/secrets/kubernetes.io/serviceaccount from default-token-9kj9r (ro)
-Conditions:
-  Type              Status
-  Initialized       True 
-  Ready             True 
-  ContainersReady   True 
-  PodScheduled      True 
-Volumes:
-  default-token-9kj9r:
-    Type:        Secret (a volume populated by a Secret)
-    SecretName:  default-token-9kj9r
-    Optional:    false
-QoS Class:       BestEffort
-Node-Selectors:  <none>
-Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
-                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
-Events:
-  Type    Reason     Age   From               Message
-  ----    ------     ----  ----               -------
-  Normal  Scheduled  118m  default-scheduler  Successfully assigned default/sba-kubernetes-cluster-deployment-7d5b75f86c-jzn4l to minikube
-  Normal  Pulling    118m  kubelet            Pulling image "vakkasoglu/sba-kubernetes-cluster"
-  Normal  Pulled     118m  kubelet            Successfully pulled image "vakkasoglu/sba-kubernetes-cluster" in 2.0020691s
-  Normal  Created    118m  kubelet            Created container sba-kubernetes-cluster-container
-  Normal  Started    118m  kubelet            Started container sba-kubernetes-cluster-container
-
-
-Name:         sba-kubernetes-cluster-deployment-7d5b75f86c-qv9k9
-Namespace:    default
-Priority:     0
-Node:         minikube/192.168.49.2
-Start Time:   Mon, 18 Jan 2021 10:39:16 -0500
-Labels:       app=sba-kubernetes-cluster
-              pod-template-hash=7d5b75f86c
-Annotations:  <none>
-Status:       Running
-IP:           172.17.0.9
-IPs:
-  IP:           172.17.0.9
-Controlled By:  ReplicaSet/sba-kubernetes-cluster-deployment-7d5b75f86c
-Containers:
-  sba-kubernetes-cluster-container:
-    Container ID:   docker://e9e82c284727a1b6e5d0795909d04eaf79e98e5935113c2bb1886d4d3eb18117
-    Image:          vakkasoglu/sba-kubernetes-cluster
-    Image ID:       docker-pullable://vakkasoglu/sba-kubernetes-cluster@sha256:ab0c43d67c703493fdda5509910ccca7b38e3f807e65850f86811463da2e07f7
-    Port:           5000/TCP
-    Host Port:      0/TCP
-    State:          Running
-      Started:      Mon, 18 Jan 2021 10:39:23 -0500
-    Ready:          True
-    Restart Count:  0
-    Environment:    <none>
-    Mounts:
-      /var/run/secrets/kubernetes.io/serviceaccount from default-token-9kj9r (ro)
-Conditions:
-  Type              Status
-  Initialized       True 
-  Ready             True 
-  ContainersReady   True 
-  PodScheduled      True 
-Volumes:
-  default-token-9kj9r:
-    Type:        Secret (a volume populated by a Secret)
-    SecretName:  default-token-9kj9r
-    Optional:    false
-QoS Class:       BestEffort
-Node-Selectors:  <none>
-Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
-                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
-Events:
-  Type    Reason     Age   From               Message
-  ----    ------     ----  ----               -------
-  Normal  Scheduled  118m  default-scheduler  Successfully assigned default/sba-kubernetes-cluster-deployment-7d5b75f86c-qv9k9 to minikube
-  Normal  Pulling    118m  kubelet            Pulling image "vakkasoglu/sba-kubernetes-cluster"
-  Normal  Pulled     118m  kubelet            Successfully pulled image "vakkasoglu/sba-kubernetes-cluster" in 913.1232ms
-  Normal  Created    118m  kubelet            Created container sba-kubernetes-cluster-container
-  Normal  Started    118m  kubelet            Started container sba-kubernetes-cluster-container
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  3m51s  default-scheduler  Successfully assigned default/sba-kubernetes-cluster-deployment-7d5b75f86c-j84qc to minikube
+  Normal  Pulling    3m47s  kubelet            Pulling image "vakkasoglu/sba-kubernetes-cluster"
+  Normal  Pulled     3m45s  kubelet            Successfully pulled image "vakkasoglu/sba-kubernetes-cluster" in 1.8574018s
+  Normal  Created    3m45s  kubelet            Created container sba-kubernetes-cluster-container
+  Normal  Started    3m44s  kubelet            Started container sba-kubernetes-cluster-container
 Name:               minikube
 Roles:              control-plane,master
 Labels:             beta.kubernetes.io/arch=amd64
@@ -342,14 +363,14 @@ Unschedulable:      false
 Lease:
   HolderIdentity:  minikube
   AcquireTime:     <unset>
-  RenewTime:       Mon, 18 Jan 2021 12:37:51 -0500
+  RenewTime:       Mon, 18 Jan 2021 20:18:44 -0500
 Conditions:
   Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
   ----             ------  -----------------                 ------------------                ------                       -------
-  MemoryPressure   False   Mon, 18 Jan 2021 12:36:51 -0500   Tue, 12 Jan 2021 11:06:55 -0500   KubeletHasSufficientMemory   kubelet has sufficient memory available
-  DiskPressure     False   Mon, 18 Jan 2021 12:36:51 -0500   Tue, 12 Jan 2021 11:06:55 -0500   KubeletHasNoDiskPressure     kubelet has no disk pressure
-  PIDPressure      False   Mon, 18 Jan 2021 12:36:51 -0500   Tue, 12 Jan 2021 11:06:55 -0500   KubeletHasSufficientPID      kubelet has sufficient PID available
-  Ready            True    Mon, 18 Jan 2021 12:36:51 -0500   Tue, 12 Jan 2021 11:07:17 -0500   KubeletReady                 kubelet is posting ready status
+  MemoryPressure   False   Mon, 18 Jan 2021 20:14:41 -0500   Tue, 12 Jan 2021 11:06:55 -0500   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Mon, 18 Jan 2021 20:14:41 -0500   Tue, 12 Jan 2021 11:06:55 -0500   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure      False   Mon, 18 Jan 2021 20:14:41 -0500   Tue, 12 Jan 2021 11:06:55 -0500   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            True    Mon, 18 Jan 2021 20:14:41 -0500   Tue, 12 Jan 2021 11:07:17 -0500   KubeletReady                 kubelet is posting ready status
 Addresses:
   InternalIP:  192.168.49.2
   Hostname:    minikube
@@ -368,7 +389,7 @@ Allocatable:
   memory:             2035188Ki
   pods:               110
 System Info:
-  Machine ID:                 ff809fe13e0d49b08cb3cf764115ba96
+  Machine ID:                 bbc75da379ad496aa23f0eebe681c621
   System UUID:                1da4d6e9-6295-4cca-9f97-15352439bf51
   Boot ID:                    960bfa91-b521-4fa2-bd04-4b7f9c2faa65
   Kernel Version:             5.4.39-linuxkit
@@ -383,22 +404,22 @@ PodCIDRs:                     10.244.0.0/24
 Non-terminated Pods:          (16 in total)
   Namespace                   Name                                                  CPU Requests  CPU Limits  Memory Requests  Memory Limits  AGE
   ---------                   ----                                                  ------------  ----------  ---------------  -------------  ---
-  default                     sba-kubernetes-cluster-84f6dfb477-bdk27               0 (0%)        0 (0%)      0 (0%)           0 (0%)         165m
-  default                     sba-kubernetes-cluster-84f6dfb477-lpmk8               0 (0%)        0 (0%)      0 (0%)           0 (0%)         165m
-  default                     sba-kubernetes-cluster-84f6dfb477-tvbtv               0 (0%)        0 (0%)      0 (0%)           0 (0%)         165m
-  default                     sba-kubernetes-cluster-deployment-7d5b75f86c-9m577    0 (0%)        0 (0%)      0 (0%)           0 (0%)         118m
-  default                     sba-kubernetes-cluster-deployment-7d5b75f86c-jzn4l    0 (0%)        0 (0%)      0 (0%)           0 (0%)         118m
-  default                     sba-kubernetes-cluster-deployment-7d5b75f86c-qv9k9    0 (0%)        0 (0%)      0 (0%)           0 (0%)         118m
-  kube-system                 coredns-74ff55c5b-2nd4l                               100m (2%)     0 (0%)      70Mi (3%)        170Mi (8%)     6d1h
-  kube-system                 etcd-minikube                                         100m (2%)     0 (0%)      100Mi (5%)       0 (0%)         6d1h
-  kube-system                 kube-apiserver-minikube                               250m (6%)     0 (0%)      0 (0%)           0 (0%)         6d1h
-  kube-system                 kube-controller-manager-minikube                      200m (5%)     0 (0%)      0 (0%)           0 (0%)         6d1h
-  kube-system                 kube-proxy-84bqs                                      0 (0%)        0 (0%)      0 (0%)           0 (0%)         6d1h
-  kube-system                 kube-scheduler-minikube                               100m (2%)     0 (0%)      0 (0%)           0 (0%)         6d1h
-  kube-system                 metrics-server-d9b576748-gr7vs                        0 (0%)        0 (0%)      0 (0%)           0 (0%)         44h
-  kube-system                 storage-provisioner                                   0 (0%)        0 (0%)      0 (0%)           0 (0%)         6d1h
-  kubernetes-dashboard        dashboard-metrics-scraper-c95fcf479-4qv77             0 (0%)        0 (0%)      0 (0%)           0 (0%)         6d1h
-  kubernetes-dashboard        kubernetes-dashboard-6cff4c7c4f-6bgzd                 0 (0%)        0 (0%)      0 (0%)           0 (0%)         6d1h
+  default                     sba-kubernetes-cluster-bc6687bf5-5vlc8                0 (0%)        0 (0%)      0 (0%)           0 (0%)         17m
+  default                     sba-kubernetes-cluster-bc6687bf5-62nzx                0 (0%)        0 (0%)      0 (0%)           0 (0%)         17m
+  default                     sba-kubernetes-cluster-bc6687bf5-tlxsj                0 (0%)        0 (0%)      0 (0%)           0 (0%)         17m
+  default                     sba-kubernetes-cluster-deployment-7d5b75f86c-2pcpr    0 (0%)        0 (0%)      0 (0%)           0 (0%)         3m51s
+  default                     sba-kubernetes-cluster-deployment-7d5b75f86c-5cbz6    0 (0%)        0 (0%)      0 (0%)           0 (0%)         3m51s
+  default                     sba-kubernetes-cluster-deployment-7d5b75f86c-j84qc    0 (0%)        0 (0%)      0 (0%)           0 (0%)         3m51s
+  kube-system                 coredns-74ff55c5b-2nd4l                               100m (2%)     0 (0%)      70Mi (3%)        170Mi (8%)     6d9h
+  kube-system                 etcd-minikube                                         100m (2%)     0 (0%)      100Mi (5%)       0 (0%)         6d9h
+  kube-system                 kube-apiserver-minikube                               250m (6%)     0 (0%)      0 (0%)           0 (0%)         6d9h
+  kube-system                 kube-controller-manager-minikube                      200m (5%)     0 (0%)      0 (0%)           0 (0%)         6d9h
+  kube-system                 kube-proxy-84bqs                                      0 (0%)        0 (0%)      0 (0%)           0 (0%)         6d9h
+  kube-system                 kube-scheduler-minikube                               100m (2%)     0 (0%)      0 (0%)           0 (0%)         6d9h
+  kube-system                 metrics-server-d9b576748-gr7vs                        0 (0%)        0 (0%)      0 (0%)           0 (0%)         2d4h
+  kube-system                 storage-provisioner                                   0 (0%)        0 (0%)      0 (0%)           0 (0%)         6d9h
+  kubernetes-dashboard        dashboard-metrics-scraper-c95fcf479-4qv77             0 (0%)        0 (0%)      0 (0%)           0 (0%)         6d9h
+  kubernetes-dashboard        kubernetes-dashboard-6cff4c7c4f-6bgzd                 0 (0%)        0 (0%)      0 (0%)           0 (0%)         6d9h
 Allocated resources:
   (Total limits may be over 100 percent, i.e., overcommitted.)
   Resource           Requests    Limits
@@ -408,8 +429,17 @@ Allocated resources:
   ephemeral-storage  100Mi (0%)  0 (0%)
   hugepages-1Gi      0 (0%)      0 (0%)
   hugepages-2Mi      0 (0%)      0 (0%)
-Events:              <none>
-[0;32mKubernetes control plane[0m is running at [0;33mhttps://127.0.0.1:32776[0m
-[0;32mKubeDNS[0m is running at [0;33mhttps://127.0.0.1:32776/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy[0m
+Events:
+  Type     Reason                   Age                From        Message
+  ----     ------                   ----               ----        -------
+  Normal   Starting                 35m                kubelet     Starting kubelet.
+  Normal   NodeAllocatableEnforced  35m                kubelet     Updated Node Allocatable limit across pods
+  Normal   NodeHasSufficientMemory  35m (x8 over 35m)  kubelet     Node minikube status is now: NodeHasSufficientMemory
+  Normal   NodeHasNoDiskPressure    35m (x8 over 35m)  kubelet     Node minikube status is now: NodeHasNoDiskPressure
+  Normal   NodeHasSufficientPID     35m (x7 over 35m)  kubelet     Node minikube status is now: NodeHasSufficientPID
+  Warning  readOnlySysFS            34m                kube-proxy  CRI error: /sys is read-only: cannot modify conntrack limits, problems may arise later (If running Docker, see docker issue #24000)
+  Normal   Starting                 34m                kube-proxy  Starting kube-proxy.
+[0;32mKubernetes control plane[0m is running at [0;33mhttps://127.0.0.1:32780[0m
+[0;32mKubeDNS[0m is running at [0;33mhttps://127.0.0.1:32780/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy[0m
 
 To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
