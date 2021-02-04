@@ -69,12 +69,10 @@
             name: sba-kubernetes-cluster
             namespace: default
           spec:
-            type: NodePort
+            type: LoadBalancer
             ports:
-              - protocol: TCP
-                port: 5000
+              - port: 5000
                 targetPort: 5000
-                nodePort: 31000
             selector:
               app: sba-kubernetes-cluster
   post_tasks:
