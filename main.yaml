@@ -85,11 +85,11 @@
       register: minikube_service
     - debug:
         msg: "sba-kubernetes-cluster URL: {{ minikube_service['stdout_lines'][0] }}"
-- name: Verify sba-kubernetes-cluster is responding.
+    - name: Verify sba-kubernetes-cluster is responding.
       uri:
         url: "{{ minikube_service['stdout_lines'][0] }}/test"
         return_content: true
       register: sba-kubernetes-cluster_response
       failed_when: "'/test' not in sba-kubernetes-cluster_response.content"
-- debug:
+    - debug:
         msg: "Testing URL sba-kubernetes-cluster Requested: {{sba-kubernetes-cluster_response.content}} Status: {{sba-kubernetes-cluster_response.status}}"
