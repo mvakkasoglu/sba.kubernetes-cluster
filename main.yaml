@@ -77,7 +77,7 @@
                 nodePort: 31000
             selector:
               app: sba-kubernetes-cluster
-post_tasks:
+  post_tasks:
     #Example export using minikube services
     - name: Expose sba-kubernetes-cluster on the host via Minikube.
       command: minikube service sba-kubernetes-cluster --url=true
