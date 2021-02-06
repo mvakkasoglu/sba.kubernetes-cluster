@@ -1,6 +1,9 @@
 ---
 - hosts: localhost
   become: true
+  vars:
+    image_name: vakkasoglu/sba-kubernetes-cluster
+    image_tag: latest
   # Pre-Tasks to validate if Minikube is running
   pre_tasks:
     - name: Install packages that allow apt to be used over HTTPS
@@ -44,7 +47,7 @@
     - name: Build image if it's not already built.
       shell: |
         eval $(minikube docker-env)
-        docker build -t {{ image_name }} ../GoProject 
+        docker build -t {{ image_name }} ../sba.kubernetes-cluster
       when: not image_hash.stdout
     - name: Install Kubernetes binaries
       apt:
