@@ -5,14 +5,14 @@
   pre_tasks:
     - name: Install packages that allow apt to be used over HTTPS
       apt:
-      name: "{{ packages }}"
-      state: present
+        name: "{{ packages }}"
+        state: present
       vars:
-      packages:
-      - apt-transport-https
-      - ca-certificates
-      - curl
-      - gnupg-agent
+        packages:
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - gnupg-agent
     # - software-properties-common
   # - name: Add an apt signing key for Kubernetes
   #   apt_key:
@@ -46,26 +46,26 @@
         eval $(minikube docker-env)
         docker build -t {{ image_name }} ../GoProject 
       when: not image_hash.stdout
-  - name: Install Kubernetes binaries
-    apt:
-      name: "{{ packages }}"
-      state: present
-    vars:
-      packages:
-        - kubelet
-        - kubeadm
-        - kubectl
+    - name: Install Kubernetes binaries
+      apt:
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages:
+          - kubelet
+          - kubeadm
+          - kubectl
   #       - minikube
   # - name: minikubes delete
   #   command: minikube delete
-  - name: sysctl
-    command: sysctl fs.protected_regular=0
-  - name: minikube start
-    command: minikube start --driver=none
-  - name: Minikube Deployment
-    command: kubectl apply -f kubernetes.yaml
-  - name: Expose sba-kubernetes-cluster on the host via Minikube
-    command: minikube service sba-kubernetes-cluster --url=true
+    - name: sysctl
+      command: sysctl fs.protected_regular=0
+    - name: minikube start
+      command: minikube start --driver=none
+    - name: Minikube Deployment
+      command: kubectl apply -f kubernetes.yaml
+    - name: Expose sba-kubernetes-cluster on the host via Minikube
+      command: minikube service sba-kubernetes-cluster --url=true
   # - name: make executable
   #   command: chmod +x kubernetes-cluster-information.sh
   # - name: timeout
