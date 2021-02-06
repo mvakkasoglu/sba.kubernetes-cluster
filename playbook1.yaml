@@ -4,10 +4,10 @@
   # Pre-Tasks to validate if Minikube is running
   pre_tasks:
     - name: Install packages that allow apt to be used over HTTPS
-    apt:
+      apt:
       name: "{{ packages }}"
       state: present
-    vars:
+      vars:
       packages:
       - apt-transport-https
       - ca-certificates
