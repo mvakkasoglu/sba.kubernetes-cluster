@@ -1,93 +1,52 @@
-# Setting host
+---
 - hosts: localhost
-  gather_facts: false
-#Variables
-  vars:
-    ansible_python_interpreter: '{{ ansible_playbook_python }}'
-    image_name: vakkasoglu/sba-kubernetes-cluster
-    image_tag: latest
-    replicas: 4
-# Pre-Tasks to validate if Minikube is running
-  pre_tasks:
-    - name: Check Minikube's status.
-      command: minikube status
-      register: minikube_status
-      changed_when: false
-      ignore_errors: true
-    # Otherwise will start minikube
-    - name: Start Minikube if it's not running.
-      command: minikube start
-      when: "not minikube_status.stdout or 'Running' not in minikube_status.stdout"
-# Check existing images
+  become: true
   tasks:
-    - name: Get existing image hash.
-      shell: |
-        eval $(minikube docker-env)
-        docker images -q {{ image_name }}
-      register: image_hash
-      changed_when: false
-# Otherwise will create an image from Dockerfile location
-    - name: Build image if it's not already built.
-      shell: |
-        eval $(minikube docker-env)
-        docker build -t {{ image_name }} ../GoProject 
-      when: not image_hash.stdout
-# Create Kubernetes resources to run Hello Go.
-    - name: Create a Deployment for sba-kubernetes-cluster.
-      k8s:
-        state: present
-        definition:
-          apiVersion: apps/v1
-          kind: Deployment
-          metadata:
-            name: sba-kubernetes-cluster
-            namespace: default
-          spec:
-            replicas: "{{ replicas }}"
-            selector:
-              matchLabels:
-                app: sba-kubernetes-cluster
-            template:
-              metadata:
-                labels:
-                  app: sba-kubernetes-cluster
-              spec:
-                containers:
-                - name: sba-kubernetes-cluster
-                  image: "{{ image_name }}:{{ image_tag }}"
-                  imagePullPolicy: IfNotPresent
-                  ports:
-                  - containerPort: 5000
-# Create Kubernetes Service (DNS required)
-    - name: Create a Service for sba-kubernetes-cluster.
-      k8s:
-        state: present
-        definition:
-          apiVersion: v1
-          kind: Service
-          metadata:
-            name: sba-kubernetes-cluster
-            namespace: default
-          spec:
-            type: LoadBalancer
-            ports:
-              - port: 5000
-                targetPort: 5000
-            selector:
-              app: sba-kubernetes-cluster
-  post_tasks:
-    #Example export using minikube services
-    - name: Expose sba-kubernetes-cluster on the host via Minikube.
-      command: minikube service sba-kubernetes-cluster --url=true
-      changed_when: false
-      register: minikube_service
-    - debug:
-        msg: "sba-kubernetes-cluster URL: {{ minikube_service['stdout_lines'][0] }}"
-    # - name: Verify sba-kubernetes-cluster is responding.
-      uri:
-        url: "{{ minikube_service['stdout_lines'][0] }}/test"
-        return_content: true
-      register: sba-kubernetes-cluster_response
-      failed_when: "'/test' not in sba-kubernetes-cluster_response.content"
-    # - debug:
-    #     msg: "Testing URL sba-kubernetes-cluster Requested: {{sba-kubernetes-cluster_response.content}} Status: {{sba-kubernetes-cluster_response.status}}"
+  - name: Install packages that allow apt to be used over HTTPS
+    apt:
+      name: "{{ packages }}"
+      state: present
+    vars:
+      packages:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - gnupg-agent
+      - software-properties-common
+  - name: Add an apt signing key for Kubernetes
+    apt_key:
+      url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+      state: present
+  - name: Add apt repository for Kubernetes
+    apt_repository:
+      repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+      state: present
+      filename: kubernetes.list
+  - name: Install Kubernetes binaries
+    apt:
+      name: "{{ packages }}"
+      state: present
+    vars:
+      packages:
+        - kubelet
+        - kubeadm
+        - kubectl
+        - minikube
+  - name: minikubes delete
+    command: minikube delete
+  - name: sysctl
+    command: sysctl fs.protected_regular=0
+  - name: minikube start
+    command: minikube start --driver=none
+  - name: Minikube Deployment
+    command: kubectl apply -f kubernetes.yaml
+  - name: make executable
+    command: chmod +x kubernetes-cluster-information.sh
+  # - name: timeout
+  #   wait_for:
+  #     timeout: 60
+  # - name: descripe
+  #   shell: ./kubernetes-cluster-information.sh > somelogWroks.txt
+  #   args:
+  #     chdir: /home/ansiblem/gitRepos/2020_03_DO_Boston_casestudy_part_1
+
