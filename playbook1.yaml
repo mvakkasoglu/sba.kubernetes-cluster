@@ -66,9 +66,9 @@
     # - name: minikube start
     #   command: minikube start --driver=none
     - name: Minikube Deployment
-      command: kubectl apply -f kubernetes.yaml
+      command: kubectl replace --force -f kubernetes.yaml
     - name: Expose sba-kubernetes-cluster on the host via Minikube
-      command: minikube service sba-kubernetes-cluster --url=true
+      command: minikube service sba-kubernetes-cluster
   # - name: make executable
   #   command: chmod +x kubernetes-cluster-information.sh
   # - name: timeout
