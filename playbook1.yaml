@@ -26,6 +26,18 @@
   #     repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
   #     state: present
   #     filename: kubernetes.list
+    - name: Install Kubernetes binaries
+      apt:
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages:
+          - kubelet
+          - kubeadm
+          - kubectl
+  #       - minikube
+  # - name: minikubes delete
+  #   command: minikube delete
     - name: Check Minikube's status.
       command: minikube status
       register: minikube_status
@@ -49,26 +61,20 @@
         eval $(minikube docker-env)
         docker build -t {{ image_name }} ../sba.kubernetes-cluster
       when: not image_hash.stdout
-    - name: Install Kubernetes binaries
-      apt:
-        name: "{{ packages }}"
-        state: present
-      vars:
-        packages:
-          - kubelet
-          - kubeadm
-          - kubectl
-  #       - minikube
-  # - name: minikubes delete
-  #   command: minikube delete
+    
     - name: sysctl
       command: sysctl fs.protected_regular=0
     # - name: minikube start
     #   command: minikube start --driver=none
     - name: Minikube Deployment
       command: kubectl replace --force -f kubernetes.yaml
+    - name: Enable service
+      service: 
+        name: sba-kubernetes-cluster
+        enabled: yes
     - name: Expose sba-kubernetes-cluster on the host via Minikube
       command: minikube service sba-kubernetes-cluster
+
   # - name: make executable
   #   command: chmod +x kubernetes-cluster-information.sh
   # - name: timeout
