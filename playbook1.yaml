@@ -63,8 +63,8 @@
   #   command: minikube delete
     - name: sysctl
       command: sysctl fs.protected_regular=0
-    - name: minikube start
-      command: minikube start --driver=none
+    # - name: minikube start
+    #   command: minikube start --driver=none
     - name: Minikube Deployment
       command: kubectl apply -f kubernetes.yaml
     - name: Expose sba-kubernetes-cluster on the host via Minikube
