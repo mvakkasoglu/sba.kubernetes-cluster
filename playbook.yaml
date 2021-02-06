@@ -89,5 +89,5 @@
         return_content: true
       register: sba-kubernetes-cluster_response
       failed_when: "'/test' not in sba-kubernetes-cluster_response.content"
-    - debug:
-        msg: "Testing URL sba-kubernetes-cluster Requested: {{sba-kubernetes-cluster_response.content}} Status: {{sba-kubernetes-cluster_response.status}}"
+    # - debug:
+    #     msg: "Testing URL sba-kubernetes-cluster Requested: {{sba-kubernetes-cluster_response.content}} Status: {{sba-kubernetes-cluster_response.status}}"
